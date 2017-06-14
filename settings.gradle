@@ -1,3 +1,4 @@
 rootProject.name = 'ssl-for-jvm'
 include 'server'
+include 'client'
 
