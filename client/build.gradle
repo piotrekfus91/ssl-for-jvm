@@ -1,4 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.github.ssl.jvm.Client'
 
 repositories {
     mavenCentral()
@@ -7,4 +10,10 @@ repositories {
 dependencies {
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.4'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
+}
+
+run {
+    if (project.hasProperty("appArgs")) {
+        args Eval.me(appArgs)
+    }
 }

@@ -16,7 +16,7 @@ public class Client {
     public static void main(String[] args) throws Exception {
         KeyStore keyStore = KeyStore.getInstance("PKCS12");
         keyStore.load(new FileInputStream(args[0]), getPassword(args));
-        SSLContext sslContext = SSLContexts.custom().loadKeyMaterial(keyStore, null).build();
+        SSLContext sslContext = SSLContexts.custom().loadKeyMaterial(keyStore, getPassword(args)).build();
         HttpClient httpClient = HttpClients.custom().setSslcontext(sslContext).build();
         HttpResponse response = httpClient.execute(new HttpGet("https://localhost:8443"));
         InputStream content = response.getEntity().getContent();
