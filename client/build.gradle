@@ -2,6 +2,12 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 mainClassName = 'com.github.ssl.jvm.Client'
+applicationDefaultJvmArgs = [
+        "-Djavax.net.ssl.trustStore=${rootDir.path}/truststore.jks",
+        "-Djavax.net.ssl.trustAnchors=${rootDir.path}/truststore.jks",
+        "-Djavax.net.ssl.trustStorePassword=changeit",
+//        "-Djavax.net.debug=all" // uncomment to see SSL logs
+]
 
 repositories {
     mavenCentral()
