@@ -46,6 +46,12 @@ openssl pkcs12 -export -in server.crt -inkey server.key -out server.p12
 cp server.p12 server/src/main/resources/
 ```
 
+### Set cert password (`server/src/main/resources/application.properties`)
+
+```properties
+server.ssl.key-store-password=
+```
+
 ### Import CA file to truststore
 
 ```bash
